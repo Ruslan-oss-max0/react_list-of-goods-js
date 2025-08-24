@@ -57,6 +57,10 @@ export const App = () => {
     setSortField('length');
   };
 
+  const handleReverse = () => {
+    setIsReversed(prev => !prev);
+  };
+
   const handleReset = () => {
     setSortField('');
     setIsReversed(false);
@@ -82,7 +86,7 @@ export const App = () => {
         </button>
 
         <button
-          onClick={() => setIsReversed(prev => !prev)}
+          onClick={handleReverse}
           type="button"
           className={`button is-warning${isReversed ? '' : ' is-light'}`}
         >
