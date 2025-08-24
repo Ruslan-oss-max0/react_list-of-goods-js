@@ -28,9 +28,6 @@ function getPreparedGoods(goods, { sortField, isReversed }) {
         case 'length':
           return a.length - b.length;
 
-        case 'reverse':
-          return preparedGoods.reverse();
-
         default:
           return 0;
       }
@@ -52,6 +49,14 @@ export const App = () => {
     isReversed,
   });
 
+  const handleSortAlphabetically = () => {
+    setSortField('alphabet');
+  };
+
+  const handleSortByLength = () => {
+    setSortField('length');
+  };
+
   const handleReset = () => {
     setSortField('');
     setIsReversed(false);
@@ -61,7 +66,7 @@ export const App = () => {
     <div className="section content">
       <div className="buttons">
         <button
-          onClick={() => setSortField('alphabet')}
+          onClick={handleSortAlphabetically}
           type="button"
           className={`button is-info${sortField === 'alphabet' ? '' : ' is-light'}`}
         >
@@ -69,7 +74,7 @@ export const App = () => {
         </button>
 
         <button
-          onClick={() => setSortField('length')}
+          onClick={handleSortByLength}
           type="button"
           className={`button is-success${sortField === 'length' ? '' : ' is-light'}`}
         >
